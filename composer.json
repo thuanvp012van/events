@@ -1,6 +1,6 @@
 {
-    "name": "penguin/event",
-    "description": "The Penguin Event package.",
+    "name": "penguin/events",
+    "description": "The Penguin Events package.",
     "type": "library",
     "license": "MIT",
     "authors": [
