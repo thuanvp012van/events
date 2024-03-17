@@ -1,0 +1,31 @@
+{
+    "name": "penguin/event",
+    "description": "The Penguin Event package.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nguyễn Hoàng Thắng Thuận",
+            "email": "thuanvp012van@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Penguin\\Component\\Event\\": "src",
+            "Penguin\\Component\\Event\\Tests\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Penguin\\Component\\Event\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "require": {
+        "penguin/container": "dev-main"
+    }
+}
