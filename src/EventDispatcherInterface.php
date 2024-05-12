@@ -4,5 +4,5 @@ namespace Penguin\Component\Event;
 
 interface EventDispatcherInterface
 {
-    public function dispatch(string|object $event): void;
+    public function dispatch(string|object $event, array $payload = []): void;
 }
