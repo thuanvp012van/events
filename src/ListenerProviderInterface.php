@@ -10,5 +10,7 @@ interface ListenerProviderInterface
 
     public function addListener(string $event, callable $callable): static;
 
+    public function addSubscriber(string $subscriber): static;
+
     public function clearListeners(string $event): void;
 }

@@ -12,17 +12,23 @@ class EventDispatcher implements EventDispatcherInterface
 
     public function __construct(protected ListenerProviderInterface $listenerProvider) {}
 
-    public function dispatch(string|object $event, array $payload = []): void
+    public function dispatch(string|object $event, array $payload = []): array|null|false
     {
         $listeners = $this->listenerProvider->getListenersForEvent($event);
         if (is_object($event)) {
             array_unshift($payload, $event);
         }
+        $responses = [];
         foreach ($listeners as $listener) {
-            $stopPropagation = BoundMethod::call($listener, $payload);
-            if ($stopPropagation === false) {
-                return;
+            $response = BoundMethod::call($listener, $payload);
+            if ($response === false) {
+                return false;
+            }
+
+            if (!is_null($response)) {
+                $responses[] = $response;
             }
         }
+        return !empty($responses) ? $responses : null;
     }
 }

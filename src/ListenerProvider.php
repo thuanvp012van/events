@@ -58,6 +58,7 @@ class ListenerProvider implements ListenerProviderInterface
                 $this->listeners[$event][] = [$subscriber, $listener];
             }
         }
+        return $this;
     }
 
     public function clearListeners(string $event): void
